@@ -46,11 +46,34 @@ titularComLetrasMaiusculas($contasCorrentes['123.256.789-12']);
 //     );
 // }
 
-echo "<ul>";
-foreach ($contasCorrentes as $cpf => $conta) {
-    exibeConta($conta);
-}
-echo "</ul>";
+// echo "<ul>";
+// foreach ($contasCorrentes as $cpf => $conta) {
+//     exibeConta($conta);
+// }
+// echo "</ul>";
 
 //rodando o servidor php local
 //php -S localhost:8080
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco PHP</title>
+</head>
+<body>
+    <h1>Contas Correntes</h1>
+    <dl>
+        <?php foreach($contasCorrentes as $cpf => $conta) { ?>
+            <dt>
+                <h3><?= $conta['titular']; ?> - <?= $cpf; ?></h3>
+            </dt>
+            <dd>
+                Saldo: <?= $conta['saldo'];?>
+            </dd>
+            <?php } ?>
+    </dl>
+</body>
+</html>
