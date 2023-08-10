@@ -37,11 +37,20 @@ unset($contasCorrentes['123.456.689-11']);
 
 titularComLetrasMaiusculas($contasCorrentes['123.256.789-12']);
 
+// foreach ($contasCorrentes as $cpf => $conta) {
+//     //exibeMensagem($cpf . " " . $conta['titular'] . ' ' . $conta['saldo']);
+//     //outra forma de manipular strings com list, parecido com a desconstrução em js
+//     ['titular' => $titular, 'saldo' => $saldo] = $conta;
+//     exibeMensagem(
+//         "$cpf $titular $saldo"
+//     );
+// }
+
+echo "<ul>";
 foreach ($contasCorrentes as $cpf => $conta) {
-    //exibeMensagem($cpf . " " . $conta['titular'] . ' ' . $conta['saldo']);
-    //outra forma de manipular strings com list, parecido com a desconstrução em js
-    ['titular' => $titular, 'saldo' => $saldo] = $conta;
-    exibeMensagem(
-        "$cpf $titular $saldo"
-    );
+    exibeConta($conta);
 }
+echo "</ul>";
+
+//rodando o servidor php local
+//php -S localhost:8080
